@@ -1,0 +1,55 @@
+#include<iostream>
+#include<vector>
+
+using namespace std;
+
+bool checkChampions(int num)
+{
+
+   int q=num,r=0;
+   //seperate each digit from number start from right most digit
+   while(q!=0)
+   {
+       r=q%10;//r will be the recent right most bit seperated from number
+       q=q/10;//remaining dights
+       if(r==0)//check if the seperated digit is zero or not
+       {
+           return false;
+       }
+       if(num%r!=0)//check the requirement of Champions
+       {
+           return false;
+       }
+   }
+   return true;
+}
+// API DOCUMENTATION HERE; FAILURE TO INCLUDE WILL
+// BE DOCKED 1 POINT
+vector<int> getChampions(int left, int right)
+{
+vector<int> list;
+if(left<=right)
+{
+   for(int i=left;i<=right;i++)
+   {
+       if(checkChampions(i))
+       {
+           list.push_back(i);
+           }
+       }
+   }
+   return list;
+}
+
+int main()
+{
+// your target function will be tested as such,
+// with a random start and end value
+vector<int> a = getChampions(1, 22);
+
+// this is one example to print out your vector content
+// in the ascending order
+for(int i=0; i < a.size(); i++)
+cout << a.at(i) << ' ';
+return 0;
+}
