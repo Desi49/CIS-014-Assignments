@@ -31,7 +31,7 @@ if(left<=right)
    {
        if(checkChampions(i))
        {
-           list.push_back(i);
+           list.push_back(i)
            }
        }
    }
